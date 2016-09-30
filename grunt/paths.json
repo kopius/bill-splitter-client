@@ -1,0 +1,26 @@
+{
+  "scripts": {
+    "all": [
+      "assets/scripts/**/*.js",
+      "spec/**/*.spec.js"
+    ],
+    "src": [
+      "assets/scripts/**/*.js"
+    ]
+  },
+
+  "grunt": {
+    "all": [
+      "Gruntfile.js",
+      "grunt/*.js"
+    ]
+  },
+
+  "json": {
+    "all": [
+      "assets/scripts/**/*.json",
+      "spec/**/*.json",
+      "grunt/*.json"
+    ]
+  }
+}
