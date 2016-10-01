@@ -2,6 +2,7 @@
 
 const app = require('../app');
 
+//
 const signUp = (data) => {
   return $.ajax({
     url: app.host + '/sign-up',
@@ -10,6 +11,7 @@ const signUp = (data) => {
   });
 };
 
+//
 const signIn = (data) => {
   return $.ajax({
     url: app.host + '/sign-in',
@@ -18,6 +20,7 @@ const signIn = (data) => {
   });
 };
 
+//
 const signOut = () => {
   let id = app.user.id;
   let token = app.user.token;
@@ -30,6 +33,7 @@ const signOut = () => {
   });
 };
 
+// 
 const changePassword = (data) => {
   let id = app.user.id;
   let token = app.user.token;

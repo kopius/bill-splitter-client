@@ -2,11 +2,11 @@
 
 const app = require('../app');
 
+//
 const clearFormFields = function () {
   $('form').find('input[type=password]').val('');
   $('form').find('input[type=email]').val('');
 };
-
 
 const signUpSuccess = (data) => {
   console.log('you are in signUpSuccess');
@@ -16,12 +16,12 @@ const signUpSuccess = (data) => {
   // display main menu
 };
 
-
+//
 const signUpFailure = (error) => {
   console.error(error);
 };
 
-
+//
 const signInSuccess = (data) => {
   // store new user in app.user
   app.user = data.user;
@@ -30,34 +30,33 @@ const signInSuccess = (data) => {
   // display main menu
 };
 
-
+//
 const signInFailure = function (error) {
   console.error(error);
 
 };
 
-
+//
 const signOutSuccess = () => {
   // clear the user object and any text left in the authorization forms
   app.user = null;
   clearFormFields();
 };
 
-
+//
 const signOutFailure = (error) => {
   console.error(error);
 };
 
-
+//
 const changePasswordSuccess = () => {
   console.log('you are in changePasswordSuccess');
 };
 
-
+//
 const changePasswordFailure = (error) => {
   console.error(error);
 };
-
 
 module.exports = {
   signUpSuccess,

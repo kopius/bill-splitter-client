@@ -7,14 +7,51 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>Bill Splitter</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <div class='auth-forms-container' id='auth-forms-container'>
+
+        <!-- sign-up form -->
+        <form id="sign-up" class='auth-form sign-up'>
+          <fieldset>
+            <legend>Sign Up</legend>
+            <input type="email" name="credentials[email]" placeholder="Enter your email">
+            <br>
+            <input type="password" name="credentials[password]" placeholder="Enter a password">
+            <br>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm your password">
+            <br>
+            <input class="submit" type="submit" name="submit" value="Sign Up">
+          </fieldset>
+        </form>
+
+        <!-- sign-in form -->
+        <form id="sign-in" class='auth-form sign-in'>
+          <fieldset>
+              <legend>Sign In</legend>
+              <input type="email" name="credentials[email]" placeholder="Enter your email">
+              <br>
+              <input type="password" name="credentials[password]" placeholder="Enter your password">
+              <br>
+              <input class="submit" type="submit" name="submit" value="Sign In">
+            </fieldset>
+        </form>
+
+        <!-- change password form -->
+        <form id="change-password" class='auth-form change-password'>
+          <fieldset>
+            <legend>Change your password</legend>
+            <input type="password" name="passwords[old]" placeholder="Enter current password">
+            <br>
+            <input type="password" name="passwords[new]" placeholder="Choose a new password">
+            <br>
+            <input class="submit" type="submit" name="submit" value="Change Password">
+          </fieldset>
+        </form>
+
+        <!-- sign-out button -->
+        <button type="button" id="sign-out" class="sign-out">Sign Out</button>
+        
+      </div>
     </body>
 </html>
