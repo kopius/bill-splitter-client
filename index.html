@@ -9,6 +9,7 @@
     <body class="container-fluid">
       <h1>Bill Splitter</h1>
 
+      <!-- authorization forms & buttons -->
       <div class='auth-forms-container' id='auth-forms-container'>
 
         <!-- sign-up form -->
@@ -51,7 +52,23 @@
 
         <!-- sign-out button -->
         <button type="button" id="sign-out" class="sign-out">Sign Out</button>
-        
+
       </div>
+
+      <div id='bill-forms-container' class='bill-forms-container'>
+
+        <form id="get-initial-bill-info" class='bill-form get-initial-bill-info'>
+          <fieldset>
+            <legend>Enter bill info</legend>
+            <input type="number" step='1' required='true' name="bill[num_people]" placeholder="Number of people">
+            <br>
+            <input type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="Total cost of meal">
+            <br>
+            <input class="submit" type="submit" name="submit" value="Create Bill">
+          </fieldset>
+        </form>
+
+      </div>
+
     </body>
 </html>
