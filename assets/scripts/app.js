@@ -1,7 +1,8 @@
 'use strict';
 
 const app = {
-  host: 'https://bill-splitter-api.herokuapp.com'
+  host: 'http://localhost:3000'
+  // replace with heroku address before deploying
 };
 
 module.exports = app;
