@@ -78,21 +78,39 @@
 
           <!-- main menu view -->
           <article id='main-menu-view' class='main-menu-view view-box'>
-            <button type='button' id='get-group-size-view-button' class='btn btn-default'>Create a Bill</button>
+            <button type='button' id='get-num-people-view-button' class='btn btn-default'>Create a Bill</button>
             <div class="button-spacer"></div>
             <button type='button' id='look-up-bill-view-button' class='btn btn-default'>Look up an Old Bill</button>
           </article>
 
           <!-- bill-related views -->
-          <article id='get-bill-info-view' class='get-bill-info-view view-box'>
-            <form id="get-initial-bill-info" class='bill-form get-initial-bill-info'>
+          <article id='get-num-people-view' class='get-num-people-view view-box'>
+            <form id="get-num-people" class='bill-form get-num-people'>
               <fieldset>
-                <legend>Enter bill info</legend>
-                <input type="number" step='1' required='true' name="bill[num_people]" placeholder="Number of people">
-                <br>
+                <legend>How many people are in your group?</legend>
+                <input type="number" step='1' required='true' name="bill[num_people]" placeholder="4">
+                <input class="submit" type="submit" name="submit" value="Continue">
+              </fieldset>
+            </form>
+          </article>
+
+          <article id='get-group-names-view' class='get-group-names-view view-box'>
+            <form id="get-group-names" class='bill-form get-group-names'>
+              <fieldset>
+                <legend>Tell us who you're with</legend>
+                <!-- figure out how to get names here -->
+                <input class="submit" type="submit" name="submit" value="Continue">
+              </fieldset>
+            </form>
+          </article>
+
+          <article id='get-total-amount-view' class='get-total-amount-view view-box'>
+            <form id="get-total-amount-info" class='bill-form get-total-amount'>
+              <fieldset>
+                <legend>What was the total cost of the meal?</legend>
                 <input type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="Total cost of meal">
                 <br>
-                <input class="submit" type="submit" name="submit" value="Create Bill">
+                <input class="submit" type="submit" name="submit" value="Split My Bill">
               </fieldset>
             </form>
           </article>

@@ -2,6 +2,21 @@
 
 const app = require('../app');
 
+const clearFormFields = function () {
+  $('input').not('.submit').val('');
+};
+
+// Clear all forms and hide all views
+const clearView = () => {
+  clearFormFields();
+  $('#container-main').find('.view-box').hide();
+};
+
+const showGetNumPeopleView = () => {
+  clearView();
+  $('#get-num-people-view').show();
+};
+
 const createBillSuccess = (data) => {
   console.log('you are in ui.createBillSuccess');
   app.bill = data.bill;
@@ -13,6 +28,7 @@ const createBillFailure = () => {
 };
 
 module.exports = {
+  showGetNumPeopleView,
   createBillSuccess,
   createBillFailure,
 };
