@@ -1,19 +1,25 @@
 $navbar-height: 65px;
 
+html {
+  height: 100%;
+}
+
 body {
-  align-items: center;
   background: $body-background;
   color: $body-text;
-  // display: flex;
+  display: flex;
+  min-height: 100%;
   margin: 0;
   padding: 0;
 }
 
 nav {
+  justify-content: center;
   background: $nav-background;
   color: $nav-text;
   display: flex;
-  height: $navbar-height;
+  flex: 0 1 65px;
+  // height: $navbar-height;
   position: fixed;
   top: 0;
   width: 100%;
@@ -22,8 +28,8 @@ nav {
     align-items: center;
     display: flex;
     font-size: 1.5em;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between;
+    width: 95%;
 
     .nav-title {
       order: 1;
@@ -33,6 +39,7 @@ nav {
 
     .nav-menu {
       order: 2;
+      text-align: right;
       width: 20%;
     }
   }
@@ -41,12 +48,15 @@ nav {
 .container-main {
   align-items: center;
   display: flex;
-  margin-top: $navbar-height;
-  padding: 15px;
+  flex: 1 1 auto;
+  height: 100%;
+  position: absolute;
   text-align: center;
+  width: 100%;
 
   .view-box {
     margin: 0 auto;
+    // flex: 0.8 1 auto;
     width: 80%;
 
     button {
@@ -75,4 +85,8 @@ nav {
     color: $body-text;
     font-size: 2em;
   }
+}
+
+.button-spacer {
+  height: 60px;
 }

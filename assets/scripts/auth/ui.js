@@ -4,27 +4,41 @@ const app = require('../app');
 
 //
 const clearFormFields = function () {
-  $('form').find('input[type=password]').val('');
-  $('form').find('input[type=email]').val('');
+  $('input').not('.submit').val('');
 };
 
+// Clear all forms and hide all views
+const clearView = () => {
+  clearFormFields();
+  $('#container-main').find('.view-box').hide();
+};
+
+// Display the sign-in form
+const showSignInView = () => {
+  console.log('you are in showSignInView');
+  clearView();
+  $('#sign-in-view').show();
+};
+
+// Display the main menu
+const showMainMenuView = () => {
+  clearView();
+  $('#main-menu-view').show();
+};
+
+//
 const signUpSuccess = (data) => {
   console.log('you are in signUpSuccess');
   console.log('data is', data);
   // automatically sign user in
   // if password was persisted locally to facilitate auto sign-in, delete it now
   // display main menu
+  showMainMenuView();
 };
 
 //
 const signUpFailure = (error) => {
   console.error(error);
-};
-
-const showSignInView = () => {
-  console.log('you are in showSignInView');
-  $('#container-main').find('.view-box').hide();
-  $('#sign-in-view').show();
 };
 
 //
@@ -34,19 +48,19 @@ const signInSuccess = (data) => {
   console.log('you are in signInSuccess');
   console.log('app.user is', app.user);
   // display main menu
+  showMainMenuView();
 };
 
 //
 const signInFailure = function (error) {
   console.error(error);
-
 };
 
 //
 const signOutSuccess = () => {
   // clear the user object and any text left in the authorization forms
   app.user = null;
-  clearFormFields();
+  showSignInView();
 };
 
 //
