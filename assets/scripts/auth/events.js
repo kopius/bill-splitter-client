@@ -15,6 +15,13 @@ const onSignUp = function (event) {
 };
 
 //
+const onSignInView = (event) => {
+  event.preventDefault();
+  console.log('you are in onSignInView');
+  ui.showSignInView();
+};
+
+//
 const onSignIn = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -46,6 +53,7 @@ const onChangePassword = function (event) {
 //
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
+  $('#sign-in-view-button').on('click', onSignInView);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('click', onSignOut);
   $('#change-password').on('submit', onChangePassword);

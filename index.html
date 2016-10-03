@@ -20,16 +20,16 @@
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
               <li><a href="#">Main Menu</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Sign Out</a></li>
+              <li id="sign-out" class="sign-out">Sign Out</li>
             </ul>
           </div>
         </div>
       </nav>
 
-
-
       <section id="container-main" class="container-main">
-        <div id='landing-view' class='landing-view view-box'>
+
+        <!-- landing view -->
+        <article id='landing-view' class='landing-view view-box'>
           <form id="sign-up" class='auth-form sign-up'>
             <fieldset class='input-group'>
               <legend>SIGN UP</legend>
@@ -43,48 +43,52 @@
             </fieldset>
           </form>
           <button type='button' id='sign-in-view-button' class='btn btn-default'>I already have an account</button>
-        </div>
+        </article>
 
-        <!-- <div id='sign-in-view' class='sign-in-view view-box' display='none'>
+        <!-- sign-in view -->
+        <article id='sign-in-view' class='sign-in-view view-box'>
           <form id="sign-in" class='auth-form sign-in'>
-            <fieldset>
+            <fieldset class='input-group'>
                 <legend>Sign In</legend>
-                <input type="email" name="credentials[email]" placeholder="Enter your email">
+                <input type="email" class='form-control' name="credentials[email]" placeholder="Enter your email">
                 <br>
-                <input type="password" name="credentials[password]" placeholder="Enter your password">
+                <input type="password" class='form-control' name="credentials[password]" placeholder="Enter your password">
                 <br>
-                <input class="submit" type="submit" name="submit" value="Sign In">
+                <input class="submit form-control" type="submit" name="submit" value="Sign In">
               </fieldset>
           </form>
-        </div> -->
+        </article>
 
           <!-- change password form -->
-          <form id="change-password" class='auth-form change-password'>
-            <fieldset>
-              <legend>Change your password</legend>
-              <input type="password" name="passwords[old]" placeholder="Enter current password">
-              <br>
-              <input type="password" name="passwords[new]" placeholder="Choose a new password">
-              <br>
-              <input class="submit" type="submit" name="submit" value="Change Password">
-            </fieldset>
-          </form>
+          <article id='change-password-view' class='change-password-view view-box'>
+            <form id="change-password" class='auth-form change-password'>
+              <fieldset>
+                <legend>Change your password</legend>
+                <input type="password" name="passwords[old]" placeholder="Enter current password">
+                <br>
+                <input type="password" name="passwords[new]" placeholder="Choose a new password">
+                <br>
+                <input class="submit" type="submit" name="submit" value="Change Password">
+              </fieldset>
+            </form>
+          </article>
 
           <!-- sign-out button -->
-          <button type="button" id="sign-out" class="sign-out">Sign Out</button>
+          <!-- <button type="button" id="sign-out" class="sign-out">Sign Out</button> -->
 
-        <!-- bill-related forms -->
-
-          <form id="get-initial-bill-info" class='bill-form get-initial-bill-info'>
-            <fieldset>
-              <legend>Enter bill info</legend>
-              <input type="number" step='1' required='true' name="bill[num_people]" placeholder="Number of people">
-              <br>
-              <input type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="Total cost of meal">
-              <br>
-              <input class="submit" type="submit" name="submit" value="Create Bill">
-            </fieldset>
-          </form>
+          <!-- bill-related views -->
+          <article id='get-bill-info-view' class='get-bill-info-view view-box'>
+            <form id="get-initial-bill-info" class='bill-form get-initial-bill-info'>
+              <fieldset>
+                <legend>Enter bill info</legend>
+                <input type="number" step='1' required='true' name="bill[num_people]" placeholder="Number of people">
+                <br>
+                <input type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="Total cost of meal">
+                <br>
+                <input class="submit" type="submit" name="submit" value="Create Bill">
+              </fieldset>
+            </form>
+          </article>
 
       </section>
     </body>

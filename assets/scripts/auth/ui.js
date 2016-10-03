@@ -21,6 +21,12 @@ const signUpFailure = (error) => {
   console.error(error);
 };
 
+const showSignInView = () => {
+  console.log('you are in showSignInView');
+  $('#container-main').find('.view-box').hide();
+  $('#sign-in-view').show();
+};
+
 //
 const signInSuccess = (data) => {
   // store new user in app.user
@@ -61,6 +67,7 @@ const changePasswordFailure = (error) => {
 module.exports = {
   signUpSuccess,
   signUpFailure,
+  showSignInView,
   signInSuccess,
   signInFailure,
   signOutSuccess,
