@@ -1,0 +1,78 @@
+$navbar-height: 65px;
+
+body {
+  align-items: center;
+  background: $body-background;
+  color: $body-text;
+  // display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: $nav-background;
+  color: $nav-text;
+  display: flex;
+  height: $navbar-height;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .nav-content {
+    align-items: center;
+    display: flex;
+    font-size: 1.5em;
+    justify-content: center;
+    width: 100%;
+
+    .nav-title {
+      order: 1;
+      padding: 20px;
+      width: 80%;
+    }
+
+    .nav-menu {
+      order: 2;
+      width: 20%;
+    }
+  }
+}
+
+.container-main {
+  align-items: center;
+  display: flex;
+  margin-top: $navbar-height;
+  padding: 15px;
+  text-align: center;
+
+  .view-box {
+    margin: 0 auto;
+    width: 80%;
+
+    button {
+      height: 60px;
+      width: 90%;
+    }
+  }
+
+  button,
+  .submit {
+    background: $button-background;
+    color: $button-text;
+  }
+
+  form {
+    margin: 20px 0;
+  }
+
+  input {
+    border-radius: 3px;
+    margin: 3px 0;
+    width: 90%;
+  }
+
+  legend {
+    color: $body-text;
+    font-size: 2em;
+  }
+}

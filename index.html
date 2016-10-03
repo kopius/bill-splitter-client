@@ -2,74 +2,90 @@
 <html>
     <head>
       <title>Example</title>
-
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
-    <body class="container-fluid">
-      <h1>Bill Splitter</h1>
+    <body>
 
-      <!-- authorization forms & buttons -->
-      <div class='auth-forms-container' id='auth-forms-container'>
+      <!-- navigation bar, present in all views -->
+      <nav id="navigation-bar" class="navigation-bar">
+        <div class="nav-content">
+          <div id="nav-title" class="nav-title">Bill-Splitter</div>
+          <div class="dropdown nav-menu">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Main Menu</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-        <!-- sign-up form -->
-        <form id="sign-up" class='auth-form sign-up'>
-          <fieldset>
-            <legend>Sign Up</legend>
-            <input type="email" name="credentials[email]" placeholder="Enter your email">
-            <br>
-            <input type="password" name="credentials[password]" placeholder="Enter a password">
-            <br>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm your password">
-            <br>
-            <input class="submit" type="submit" name="submit" value="Sign Up">
-          </fieldset>
-        </form>
 
-        <!-- sign-in form -->
-        <form id="sign-in" class='auth-form sign-in'>
-          <fieldset>
-              <legend>Sign In</legend>
-              <input type="email" name="credentials[email]" placeholder="Enter your email">
+
+      <section id="container-main" class="container-main">
+        <div id='landing-view' class='landing-view view-box'>
+          <form id="sign-up" class='auth-form sign-up'>
+            <fieldset class='input-group'>
+              <legend>SIGN UP</legend>
+              <input type="email" class='form-control' name="credentials[email]" placeholder="Enter your email">
               <br>
-              <input type="password" name="credentials[password]" placeholder="Enter your password">
+              <input type="password" class='form-control' name="credentials[password]" placeholder="Enter a password">
               <br>
-              <input class="submit" type="submit" name="submit" value="Sign In">
+              <input type="password" class='form-control' name="credentials[password_confirmation]" placeholder="Confirm your password">
+              <br>
+              <input class="submit form-control" type="submit" name="submit" value="Sign Up">
             </fieldset>
-        </form>
+          </form>
+          <button type='button' id='sign-in-view-button' class='btn btn-default'>I already have an account</button>
+        </div>
 
-        <!-- change password form -->
-        <form id="change-password" class='auth-form change-password'>
-          <fieldset>
-            <legend>Change your password</legend>
-            <input type="password" name="passwords[old]" placeholder="Enter current password">
-            <br>
-            <input type="password" name="passwords[new]" placeholder="Choose a new password">
-            <br>
-            <input class="submit" type="submit" name="submit" value="Change Password">
-          </fieldset>
-        </form>
+        <!-- <div id='sign-in-view' class='sign-in-view view-box' display='none'>
+          <form id="sign-in" class='auth-form sign-in'>
+            <fieldset>
+                <legend>Sign In</legend>
+                <input type="email" name="credentials[email]" placeholder="Enter your email">
+                <br>
+                <input type="password" name="credentials[password]" placeholder="Enter your password">
+                <br>
+                <input class="submit" type="submit" name="submit" value="Sign In">
+              </fieldset>
+          </form>
+        </div> -->
 
-        <!-- sign-out button -->
-        <button type="button" id="sign-out" class="sign-out">Sign Out</button>
+          <!-- change password form -->
+          <form id="change-password" class='auth-form change-password'>
+            <fieldset>
+              <legend>Change your password</legend>
+              <input type="password" name="passwords[old]" placeholder="Enter current password">
+              <br>
+              <input type="password" name="passwords[new]" placeholder="Choose a new password">
+              <br>
+              <input class="submit" type="submit" name="submit" value="Change Password">
+            </fieldset>
+          </form>
 
-      </div>
+          <!-- sign-out button -->
+          <button type="button" id="sign-out" class="sign-out">Sign Out</button>
 
-      <!-- bill-related forms -->
-      <div id='bill-forms-container' class='bill-forms-container'>
+        <!-- bill-related forms -->
 
-        <form id="get-initial-bill-info" class='bill-form get-initial-bill-info'>
-          <fieldset>
-            <legend>Enter bill info</legend>
-            <input type="number" step='1' required='true' name="bill[num_people]" placeholder="Number of people">
-            <br>
-            <input type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="Total cost of meal">
-            <br>
-            <input class="submit" type="submit" name="submit" value="Create Bill">
-          </fieldset>
-        </form>
+          <form id="get-initial-bill-info" class='bill-form get-initial-bill-info'>
+            <fieldset>
+              <legend>Enter bill info</legend>
+              <input type="number" step='1' required='true' name="bill[num_people]" placeholder="Number of people">
+              <br>
+              <input type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="Total cost of meal">
+              <br>
+              <input class="submit" type="submit" name="submit" value="Create Bill">
+            </fieldset>
+          </form>
 
-      </div>
-
+      </section>
     </body>
 </html>
