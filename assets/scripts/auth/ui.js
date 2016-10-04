@@ -16,6 +16,7 @@ const clearView = () => {
 // Display the landing view with sign-up form
 const showLandingView = () => {
   clearView();
+  $('#navigation-bar').hide();
   $('#landing-view').show();
 };
 
@@ -29,6 +30,7 @@ const showSignInView = () => {
 // Display the main menu
 const showMainMenuView = () => {
   clearView();
+  $('#navigation-bar').show();
   $('#main-menu-view').show();
 };
 

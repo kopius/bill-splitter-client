@@ -13,11 +13,6 @@ const clearView = () => {
   $('#container-main').find('.view-box').hide();
 };
 
-// const showGetNumPeopleView = () => {
-//   clearView();
-//   $('#get-num-people-view').show();
-// };
-
 // Display view for user to enter names of group members
 const showGetNamesView = () => {
   clearView();
