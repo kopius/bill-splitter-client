@@ -119,8 +119,20 @@
           <div id="shares-list" class="shares-list">
             <legend>Cool. Here's what everyone owes:</legend>
           </div>
+          <button type='button' id='change-total-amount-view-button' class='btn btn-default'>Change Cost of Meal</button>
           <button type='button' id='save-new-bill-button' class='btn btn-default'>Save This Bill</button>
           <button type='button' id='delete-new-bill-button' class='btn btn-default'>Delete This Bill</button>
+        </article>
+
+        <article id='change-total-amount-view' class='change-total-amount-view view-box'>
+          <form id="change-total-amount" class='bill-form change-total-amount'>
+            <fieldset>
+              <legend>What is the new total cost of the meal?</legend>
+              <input class="form-control" type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="45.67">
+              <br>
+              <input class="submit big-button" type="submit" name="submit" value="Update Total Cost">
+            </fieldset>
+          </form>
         </article>
 
       </section>

@@ -6,8 +6,7 @@ const api = require('./api');
 const ui = require('./ui');
 const logic = require ('./logic');
 
-
-
+//
 const submitShareInfo = () => {
   /*
   Loop through the names array and initiate a POST request for each name,
@@ -107,6 +106,25 @@ const setUpDynamicNameFields = () => {
   });
 };
 
+const onChangeTotalAmountView = (event) => {
+  event.preventDefault();
+  ui.showChangeTotalAmountView();
+};
+
+const onChangeTotalAmount = (event) => {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  // debugger;
+  let totalAmount = data.bill.total_amount;
+  app.bill.total_amount = totalAmount;
+
+  api.updateBill(totalAmount)
+    .done(ui.updateBillAmountSuccess)
+    .done(submitShareInfo)
+    .done(ui.showWorkingShareSummaryView)
+    .fail(ui.updateBillAmountFailure);
+};
+
 const onDeleteNewBill = (event) => {
   event.preventDefault();
   let id = app.bill.id;
@@ -121,6 +139,8 @@ const addHandlers = () => {
   $('#get-group-names').on('submit', onSubmitGroupNames);
   $('#get-total-amount').on('submit', onSubmitTotalAmount);
   setUpDynamicNameFields();
+  $('#change-total-amount-view-button').on('click', onChangeTotalAmountView);
+  $('#change-total-amount').on('submit', onChangeTotalAmount);
   $('#delete-new-bill-button').on('click', onDeleteNewBill);
 };
 

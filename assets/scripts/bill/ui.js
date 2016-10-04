@@ -26,6 +26,7 @@ const showGetNamesView = () => {
   $('#get-group-names-view').show();
 };
 
+//
 const showGetTotalAmountView = () => {
   clearView();
   $('#get-total-amount-view').show();
@@ -55,6 +56,12 @@ const showWorkingShareSummaryView = () => {
   $('#working-share-summary-view').show();
 };
 
+//
+const showChangeTotalAmountView = () => {
+  clearView();
+  $('#change-total-amount-view').show();
+};
+
 // Respond to a successful bill creation attempt
 const createBillSuccess = (data) => {
   console.log('you are in ui.createBillSuccess');
@@ -63,7 +70,20 @@ const createBillSuccess = (data) => {
 };
 
 // Respond to a failed bill creation attempt
-const createBillFailure = () => {
+const createBillFailure = (error) => {
+  console.error(error);
+};
+
+// Respond to a successful bill update amount attempt
+const updateBillAmountSuccess = () => {
+  console.log('you are in ui.updateBillSuccess');
+  console.log("app.bill is", app.bill);
+};
+
+// Respond to a failed bill update amount attempt
+const updateBillAmountFailure = (error) => {
+  console.log('you are in updateBillAmountFailure');
+  console.error(error);
 };
 
 const deleteBillSuccess = () => {
@@ -83,8 +103,11 @@ module.exports = {
   showGetTotalAmountView,
   displayShares,
   showWorkingShareSummaryView,
+  showChangeTotalAmountView,
   createBillSuccess,
   createBillFailure,
+  updateBillAmountSuccess,
+  updateBillAmountFailure,
   deleteBillSuccess,
   deleteBillFailure,
 };
