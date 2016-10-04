@@ -85,9 +85,10 @@
 
         <!-- bill-related views -->
 
+        <!-- bill lookup view -->
         <article id='look-up-bill-view' class='look-up-bill-view view-box'>
           <legend>View All My Bills</legend>
-          <button type='button' id='get-all-bills-view-button' class='big-button btn btn-default'>See All Bills</button>
+          <button type='button' id='index-bills-view-button' class='big-button btn btn-default'>See All Bills</button>
           <div class="button-spacer"></div>
           <form id="get-bill-by-id" class='bill-form get-bill-by-id'>
             <fieldset>
@@ -97,6 +98,20 @@
               <input class="submit big-button" type="submit" name="submit" value="Look up Bill">
             </fieldset>
           </form>
+        </article>
+
+        <!-- bill index view -->
+        <article id='index-bills-view' class='index-bills-view view-box'>
+          <legend>My Bills</legend>
+          <div id="bills-list" class="bills-list">
+          </div>
+        </article>
+
+        <!-- bill show view -->
+        <article id='show-bill-view' class='show-bill-view view-box'>
+          <legend>My Bill</legend>
+          <div id="bill-display" class="bill-display">
+          </div>
         </article>
 
         <!-- get names of people in the group -->

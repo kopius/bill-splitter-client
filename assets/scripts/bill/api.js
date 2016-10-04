@@ -2,6 +2,33 @@
 
 const app = require('../app');
 
+// Send GET request to server to get all Bills belonging to user
+const indexBills = () => {
+  console.log('you are in api.indexBills');
+  let token = app.user.token;
+  return $.ajax({
+    url: app.host + '/bills',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + token,
+    }
+  });
+};
+
+// Send GET request to server to get a Bill with a specific ID
+const showBill = (id) => {
+  console.log('you are in api.showBill');
+  console.log('id is', id);
+  let token = app.user.token;
+  return $.ajax({
+    url: app.host + '/bills/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + token,
+    }
+  });
+};
+
 // Send POST request to server to create new Bill using form data
 const createBill = (data) => {
   console.log('you are in api.createBill');
@@ -52,6 +79,8 @@ const deleteBill = (id) => {
 };
 
 module.exports = {
+  indexBills,
+  showBill,
   createBill,
   updateBill,
   deleteBill,

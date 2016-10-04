@@ -6,29 +6,53 @@ const api = require('./api');
 const ui = require('./ui');
 const logic = require ('./logic');
 
+//
 const onLookUpBillView = (event) => {
   event.preventDefault();
   ui.showLookUpBillView();
 };
 
 //
+const onIndexBillsView = (event) => {
+  event.preventDefault();
+
+  api.indexBills()
+    .done(ui.indexBillsSuccess)
+    .fail(ui.indexBillsFailure);
+};
+
+//
+const onGetBillById = (event) => {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  let id = data.bill.id;
+
+  api.showBill(id)
+    .done(ui.showBillSuccess)
+    .fail(ui.showBillFailure);
+};
+
+//
 const submitShareInfo = () => {
   /*
+  Stretch goal for this function:
+
   Loop through the names array and initiate a POST request for each name,
   including the name and bill_id as the data for each request, like so:
   data = {share: {name: 'Alex', bill_id: 8}}
 
     Write an api function that initiates the POST requests via AJAX
 
-    Create an array 'shares' on app. As each share object is returned, push it
-    into the array.
+    Create an array 'shares' on app. As each new share object is returned, push
+    it into this array.
 
-    Write a ui function that iterates over the shares and creates a list item for
-    each. Append each new <li> to the working-share-summary-view.
+    Write a ui function that iterates over the shares and creates HTML for
+    each. Append each new element to the working-share-summary-view.
 
   When the loop is complete, the summary view may be displayed.
   */
 
+  // For prototype, use local logic to create and display Shares
   logic.createShares();
   ui.displayShares();
 };
@@ -66,11 +90,12 @@ const onSubmitTotalAmount = (event) => {
   // extract the total cost of the meal from the form submission and save on app
   let data = getFormFields(event.target);
   let bill = data.bill;
-  app.currentBill.total_amount = bill.total_amount;
+  app.currentBill.total_amount = bill.total_amount.toFixed(2);
 
   submitBillInfo();
 };
 
+//
 const setUpDynamicNameFields = () => {
   let next = 1;
   $(".add-more").click(function(event){
@@ -111,11 +136,13 @@ const setUpDynamicNameFields = () => {
   });
 };
 
+//
 const onChangeTotalAmountView = (event) => {
   event.preventDefault();
   ui.showChangeTotalAmountView();
 };
 
+//
 const onChangeTotalAmount = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -130,6 +157,7 @@ const onChangeTotalAmount = (event) => {
     .fail(ui.updateBillAmountFailure);
 };
 
+//
 const onDeleteNewBill = (event) => {
   event.preventDefault();
   let id = app.bill.id;
@@ -141,6 +169,8 @@ const onDeleteNewBill = (event) => {
 // Add event handlers for bill-related buttons & forms
 const addHandlers = () => {
   $('#look-up-bill-view-button').on('click', onLookUpBillView);
+  $('#index-bills-view-button').on('click', onIndexBillsView);
+  $('#get-bill-by-id').on('submit', onGetBillById);
   $('#get-names-view-button').on('click', onGetNamesView);
   $('#get-group-names').on('submit', onSubmitGroupNames);
   $('#get-total-amount').on('submit', onSubmitTotalAmount);
