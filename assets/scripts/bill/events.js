@@ -5,6 +5,35 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 
+const submitShareInfo = () => {
+  /*
+  Loop through the names array and initiate a POST request for each name,
+  including the name and bill_id as the data for each request, like so:
+  data = {share: {name: 'Alex', bill_id: 8}}
+
+    Write an api function that initiates the POST requests via AJAX
+
+    Create an array 'shares' on app. As each share object is returned, push it
+    into the array.
+
+    Write a ui function that iterates over the shares and creates a list item for
+    each. Append each new <li> to the working-share-summary-view.
+
+  When the loop is complete, the summary view may be displayed.
+  */
+};
+
+const submitBillInfo = () => {
+  let data = {};
+  data.bill = app.currentBill;
+  // debugger;
+  api.createBill(data)
+    .done(ui.createBillSuccess)
+    .done(submitShareInfo)
+    .done(ui.showWorkingShareSummaryView)
+    .fail(ui.createBillFailure);
+};
+
 const onGetNamesView = (event) => {
   event.preventDefault();
   ui.showGetNamesView();
@@ -20,25 +49,25 @@ const onSubmitGroupNames = (event) => {
     names.push(data.names[key]);
   }
   let num_people = names.length;
-  app.currentBill = {bill: {'num_people': num_people}};
+  app.currentBill = {'num_people': num_people};
   app.names = names;
 
   console.log('group names have been submitted:');
   console.log('app is', app);
+
+  ui.showGetTotalAmountView();
 };
 
 const onSubmitTotalAmount = (event) => {
   event.preventDefault();
-};
 
-// const onSubmitBillInfo = (event) => {
-//   event.preventDefault();
-//   let data = getFormFields(event.target);
-//
-//   api.createBill(data)
-//     .done(ui.createBillSuccess)
-//     .fail(ui.createBillFailure);
-// };
+  // extract the total cost of the meal from the form submission and save on app
+  let data = getFormFields(event.target);
+  let bill = data.bill;
+  app.currentBill.total_amount = bill.total_amount;
+
+  submitBillInfo();
+};
 
 const setUpDynamicNameFields = () => {
   let next = 1;

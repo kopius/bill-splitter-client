@@ -70,7 +70,8 @@ nav {
     width: 90%;
   }
 
-  .add-more, .remove-me {
+  .add-more,
+  .remove-me {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 3px;
@@ -86,14 +87,14 @@ nav {
   input {
     border-radius: 3px;
     color: $form-text;
-    margin: 3px 0;
+    margin: 3px auto;
     width: 90%;
   }
 
   .name-input {
     display: inline-block;
     width: 85%;
-    height: 3
+    // height: 3
   }
 
   legend {

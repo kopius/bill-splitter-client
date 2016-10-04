@@ -59,61 +59,68 @@
           </form>
         </article>
 
-          <!-- change password view -->
-          <article id='change-password-view' class='change-password-view view-box'>
-            <form id="change-password" class='auth-form change-password'>
-              <fieldset>
-                <legend>Change your password</legend>
-                <input type="password" name="passwords[old]" placeholder="Enter current password">
-                <br>
-                <input type="password" name="passwords[new]" placeholder="Choose a new password">
-                <br>
-                <input class="submit" type="submit" name="submit" value="Change Password">
-              </fieldset>
-            </form>
-          </article>
+        <!-- change password view -->
+        <article id='change-password-view' class='change-password-view view-box'>
+          <form id="change-password" class='auth-form change-password'>
+            <fieldset>
+              <legend>Change your password</legend>
+              <input type="password" name="passwords[old]" placeholder="Enter current password">
+              <br>
+              <input type="password" name="passwords[new]" placeholder="Choose a new password">
+              <br>
+              <input class="submit" type="submit" name="submit" value="Change Password">
+            </fieldset>
+          </form>
+        </article>
 
-          <!-- sign-out button -->
-          <!-- <button type="button" id="sign-out" class="sign-out">Sign Out</button> -->
+        <!-- sign-out button -->
+        <!-- <button type="button" id="sign-out" class="sign-out">Sign Out</button> -->
 
-          <!-- main menu view -->
-          <article id='main-menu-view' class='main-menu-view view-box'>
-            <button type='button' id='get-names-view-button' class='big-button btn btn-default'>Create a Bill</button>
-            <div class="button-spacer"></div>
-            <button type='button' id='look-up-bill-view-button' class='big-button btn btn-default'>Look up an Old Bill</button>
-          </article>
+        <!-- main menu view -->
+        <article id='main-menu-view' class='main-menu-view view-box'>
+          <button type='button' id='get-names-view-button' class='big-button btn btn-default'>Create a Bill</button>
+          <div class="button-spacer"></div>
+          <button type='button' id='look-up-bill-view-button' class='big-button btn btn-default'>Look up an Old Bill</button>
+        </article>
 
-          <!-- bill-related views -->
+        <!-- bill-related views -->
 
-          <!-- get names of people in the group -->
-          <article id='get-group-names-view' class='get-group-names-view view-box'>
-          	<input type="hidden" name="count" value="1">
-            <div class="control-group" id="fields">
-              <div class="controls" id="profs">
-                <form id="get-group-names" class="bill-form get-group-names input-append">
-                    <fieldset>
-                        <legend>Tell us who you're with:</legend>
-                        <div id="field" class="group-name-inputs">
-                          <input autocomplete="off" class="name-input form-control" id="field1" name="names[1]" type="text" placeholder="Name" data-items="8">
-                          <button class="btn form-control add-more" type="button">+</button>
-                        </div>
-                        <input class="submit big-button" type="submit" name="submit" value="Continue">
-                    </fieldset>
-                </form>
-              </div>
+        <!-- get names of people in the group -->
+        <article id='get-group-names-view' class='get-group-names-view view-box'>
+        	<input type="hidden" name="count" value="1">
+          <div class="control-group" id="fields">
+            <div class="controls" id="profs">
+              <form id="get-group-names" class="bill-form get-group-names input-append">
+                  <fieldset>
+                      <legend>Tell us who you're with:</legend>
+                      <div id="field" class="group-name-inputs">
+                        <input autocomplete="off" class="name-input form-control" id="field1" name="names[1]" type="text" placeholder="Name" data-items="8">
+                        <button class="btn form-control add-more" type="button">+</button>
+                      </div>
+                      <input class="submit big-button" type="submit" name="submit" value="Continue">
+                  </fieldset>
+              </form>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article id='get-total-amount-view' class='get-total-amount-view view-box'>
-            <form id="get-total-amount-info" class='bill-form get-total-amount'>
-              <fieldset>
-                <legend>What was the total cost of the meal?</legend>
-                <input type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="Total cost of meal">
-                <br>
-                <input class="submit" type="submit" name="submit" value="Split My Bill">
-              </fieldset>
-            </form>
-          </article>
+        <article id='get-total-amount-view' class='get-total-amount-view view-box'>
+          <form id="get-total-amount" class='bill-form get-total-amount'>
+            <fieldset>
+              <legend>What was the total cost of the meal?</legend>
+              <input class="form-control" type="number" step='0.01' required='true' name="bill[total_amount]" placeholder="45.67">
+              <br>
+              <input class="submit big-button" type="submit" name="submit" value="Split My Bill">
+            </fieldset>
+          </form>
+        </article>
+
+        <article id='working-share-summary-view' class='working-share-summary-view view-box'>
+          <div>summary of shares will go here</div>
+          <button type='button' id='save-bill-button' class='btn btn-default'>Save This Bill</button>
+          <div class="button-spacer"></div>
+          <button type='button' id='delete-bill-button' class='btn btn-default'>Delete This Bill</button>
+        </article>
 
       </section>
     </body>
