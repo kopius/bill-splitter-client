@@ -3,6 +3,8 @@
 Client application for Bill-Splitter, a mobile-first browser app that splits
 your restaurant tab into fair shares based on who had what.
 
+The GitHub repository for the Bill-Splitter API can be found [here](https://github.com/kopiusmaximus/bill-splitter-api).
+
 ## Why Bill-Splitter?
 
 Have you ever been out at a restaurant and wanted to order a more expensive dish
