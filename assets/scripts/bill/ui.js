@@ -13,6 +13,13 @@ const clearView = () => {
   $('#container-main').find('.view-box').hide();
 };
 
+// Display the main menu
+const showMainMenuView = () => {
+  clearView();
+  $('#navigation-bar').show();
+  $('#main-menu-view').show();
+};
+
 // Display view for user to enter names of group members
 const showGetNamesView = () => {
   clearView();
@@ -59,6 +66,17 @@ const createBillSuccess = (data) => {
 const createBillFailure = () => {
 };
 
+const deleteBillSuccess = () => {
+  console.log('you are in ui.deleteBillSuccess');
+  app.bill = null;
+  showMainMenuView();
+  console.log('app.bill should be null. app.bill is:', app.bill);
+};
+
+const deleteBillFailure = (error) => {
+  console.error(error);
+};
+
 module.exports = {
   // showGetNumPeopleView,
   showGetNamesView,
@@ -67,4 +85,6 @@ module.exports = {
   showWorkingShareSummaryView,
   createBillSuccess,
   createBillFailure,
+  deleteBillSuccess,
+  deleteBillFailure,
 };

@@ -29,6 +29,7 @@ const submitShareInfo = () => {
   ui.displayShares();
 };
 
+//
 const submitBillInfo = () => {
   let data = {};
   data.bill = app.currentBill;
@@ -40,6 +41,7 @@ const submitBillInfo = () => {
     .fail(ui.createBillFailure);
 };
 
+//
 const onGetNamesView = (event) => {
   event.preventDefault();
   ui.showGetNamesView();
@@ -53,6 +55,7 @@ const onSubmitGroupNames = (event) => {
   ui.showGetTotalAmountView();
 };
 
+//
 const onSubmitTotalAmount = (event) => {
   event.preventDefault();
 
@@ -104,12 +107,21 @@ const setUpDynamicNameFields = () => {
   });
 };
 
+const onDeleteNewBill = (event) => {
+  event.preventDefault();
+  let id = app.bill.id;
+  api.deleteBill(id)
+    .done(ui.deleteBillSuccess)
+    .fail(ui.deleteBillFailure);
+};
+
 // Add event handlers for bill-related buttons & forms
 const addHandlers = () => {
   $('#get-names-view-button').on('click', onGetNamesView);
   $('#get-group-names').on('submit', onSubmitGroupNames);
   $('#get-total-amount').on('submit', onSubmitTotalAmount);
   setUpDynamicNameFields();
+  $('#delete-new-bill-button').on('click', onDeleteNewBill);
 };
 
 module.exports = {

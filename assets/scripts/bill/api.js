@@ -17,6 +17,21 @@ const createBill = (data) => {
   });
 };
 
+// send DELETE request to server to destroy Bill with specified ID.
+const deleteBill = (id) => {
+  console.log('you are in api.deleteBill');
+  console.log('id is', id);
+  let token = app.user.token;
+  return $.ajax({
+    url: app.host + '/bills/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + token,
+    }
+  });
+};
+
 module.exports = {
   createBill,
+  deleteBill,
 };
