@@ -20,6 +20,11 @@ const showMainMenuView = () => {
   $('#main-menu-view').show();
 };
 
+const showLookUpBillView = () => {
+  clearView();
+  $('#look-up-bill-view').show();
+};
+
 // Display view for user to enter names of group members
 const showGetNamesView = () => {
   clearView();
@@ -98,7 +103,7 @@ const deleteBillFailure = (error) => {
 };
 
 module.exports = {
-  // showGetNumPeopleView,
+  showLookUpBillView,
   showGetNamesView,
   showGetTotalAmountView,
   displayShares,

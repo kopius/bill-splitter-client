@@ -6,6 +6,11 @@ const api = require('./api');
 const ui = require('./ui');
 const logic = require ('./logic');
 
+const onLookUpBillView = (event) => {
+  event.preventDefault();
+  ui.showLookUpBillView();
+};
+
 //
 const submitShareInfo = () => {
   /*
@@ -135,6 +140,7 @@ const onDeleteNewBill = (event) => {
 
 // Add event handlers for bill-related buttons & forms
 const addHandlers = () => {
+  $('#look-up-bill-view-button').on('click', onLookUpBillView);
   $('#get-names-view-button').on('click', onGetNamesView);
   $('#get-group-names').on('submit', onSubmitGroupNames);
   $('#get-total-amount').on('submit', onSubmitTotalAmount);
