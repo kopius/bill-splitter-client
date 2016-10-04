@@ -39,8 +39,8 @@ individually.
 The following links show some of the planning resources that were generated to
 guide the development of Bill-Splitter:
 
-[User Stories](./documentation/user_stories.md)
-[Wireframes](./documentation/wireframes/)
+-   [User Stories](./documentation/user_stories.md)
+-   [Wireframes](./documentation/wireframes/)
 
 The prototype was developed with a simple goal: deploy a client and API capable
 of gathering basic information about a restaurant tab and displaying an equal
