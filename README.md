@@ -1,4 +1,4 @@
-# Bill Splitter
+# Bill-Splitter
 
 Client application for Bill-Splitter, a mobile-first browser app that splits
 your restaurant tab into fair shares based on who had what.
