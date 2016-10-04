@@ -80,7 +80,7 @@ const showChangeTotalAmountView = () => {
 // Write new HTML for an individual share
 const writeBillHTML = (bill) => {
   let billHMTL = '<p>Bill #' + bill.id + ': ' + bill.num_people + ' people, ';
-  billHMTL += 'total cost of $' + bill.total_amount + '</p>';
+  billHMTL += 'total cost of $' + bill.total_amount.toFixed(2) + '</p>';
   return billHMTL;
 };
 

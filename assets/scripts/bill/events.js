@@ -90,7 +90,7 @@ const onSubmitTotalAmount = (event) => {
   // extract the total cost of the meal from the form submission and save on app
   let data = getFormFields(event.target);
   let bill = data.bill;
-  app.currentBill.total_amount = bill.total_amount.toFixed(2);
+  app.currentBill.total_amount = bill.total_amount;
 
   submitBillInfo();
 };
