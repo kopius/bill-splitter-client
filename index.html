@@ -42,7 +42,7 @@
               <input class="submit form-control" type="submit" name="submit" value="Sign Up">
             </fieldset>
           </form>
-          <button type='button' id='sign-in-view-button' class='btn btn-default'>I already have an account</button>
+          <button type='button' id='sign-in-view-button' class='big-button btn btn-default'>I already have an account</button>
         </article>
 
         <!-- sign-in view -->
@@ -78,30 +78,30 @@
 
           <!-- main menu view -->
           <article id='main-menu-view' class='main-menu-view view-box'>
-            <button type='button' id='get-num-people-view-button' class='btn btn-default'>Create a Bill</button>
+            <button type='button' id='get-names-view-button' class='big-button btn btn-default'>Create a Bill</button>
             <div class="button-spacer"></div>
-            <button type='button' id='look-up-bill-view-button' class='btn btn-default'>Look up an Old Bill</button>
+            <button type='button' id='look-up-bill-view-button' class='big-button btn btn-default'>Look up an Old Bill</button>
           </article>
 
           <!-- bill-related views -->
-          <article id='get-num-people-view' class='get-num-people-view view-box'>
-            <form id="get-num-people" class='bill-form get-num-people'>
-              <fieldset>
-                <legend>How many people are in your group?</legend>
-                <input type="number" step='1' required='true' name="bill[num_people]" placeholder="4">
-                <input class="submit" type="submit" name="submit" value="Continue">
-              </fieldset>
-            </form>
-          </article>
 
+          <!-- get names of people in the group -->
           <article id='get-group-names-view' class='get-group-names-view view-box'>
-            <form id="get-group-names" class='bill-form get-group-names'>
-              <fieldset>
-                <legend>Tell us who you're with</legend>
-                <!-- figure out how to get names here -->
-                <input class="submit" type="submit" name="submit" value="Continue">
-              </fieldset>
-            </form>
+          	<input type="hidden" name="count" value="1">
+            <div class="control-group" id="fields">
+              <div class="controls" id="profs">
+                <form id="get-group-names" class="bill-form get-group-names input-append">
+                    <fieldset>
+                        <legend>Tell us who you're with:</legend>
+                        <div id="field" class="group-name-inputs">
+                          <input autocomplete="off" class="name-input form-control" id="field1" name="names[1]" type="text" placeholder="Name" data-items="8">
+                          <button class="btn form-control add-more" type="button">+</button>
+                        </div>
+                        <input class="submit big-button" type="submit" name="submit" value="Continue">
+                    </fieldset>
+                </form>
+              </div>
+            </div>
           </article>
 
           <article id='get-total-amount-view' class='get-total-amount-view view-box'>

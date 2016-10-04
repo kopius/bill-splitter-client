@@ -12,9 +12,14 @@ const clearView = () => {
   $('#container-main').find('.view-box').hide();
 };
 
-const showGetNumPeopleView = () => {
+// const showGetNumPeopleView = () => {
+//   clearView();
+//   $('#get-num-people-view').show();
+// };
+
+const showGetNamesView = () => {
   clearView();
-  $('#get-num-people-view').show();
+  $('#get-group-names-view').show();
 };
 
 const createBillSuccess = (data) => {
@@ -28,7 +33,8 @@ const createBillFailure = () => {
 };
 
 module.exports = {
-  showGetNumPeopleView,
+  // showGetNumPeopleView,
+  showGetNamesView,
   createBillSuccess,
   createBillFailure,
 };

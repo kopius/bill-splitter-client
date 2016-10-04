@@ -8,18 +8,17 @@ body {
   background: $body-background;
   color: $body-text;
   display: flex;
-  min-height: 100%;
   margin: 0;
+  min-height: 100%;
   padding: 0;
 }
 
 nav {
-  justify-content: center;
   background: $nav-background;
   color: $nav-text;
   display: flex;
   flex: 0 1 65px;
-  // height: $navbar-height;
+  justify-content: center;
   position: fixed;
   top: 0;
   width: 100%;
@@ -58,11 +57,6 @@ nav {
     margin: 0 auto;
     // flex: 0.8 1 auto;
     width: 80%;
-
-    button {
-      height: 60px;
-      width: 90%;
-    }
   }
 
   button,
@@ -71,14 +65,35 @@ nav {
     color: $button-text;
   }
 
+  .big-button {
+    height: 60px;
+    width: 90%;
+  }
+
+  .add-more, .remove-me {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 3px;
+    padding: 1px;
+    text-align: center;
+    width: 10%;
+  }
+
   form {
     margin: 20px 0;
   }
 
   input {
     border-radius: 3px;
+    color: $form-text;
     margin: 3px 0;
     width: 90%;
+  }
+
+  .name-input {
+    display: inline-block;
+    width: 85%;
+    height: 3
   }
 
   legend {
