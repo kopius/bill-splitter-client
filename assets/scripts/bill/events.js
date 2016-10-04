@@ -166,6 +166,13 @@ const onDeleteNewBill = (event) => {
     .fail(ui.deleteBillFailure);
 };
 
+const onSaveNewBill = () => {
+  ui.showMainMenuView();
+  app.currentBill = null;
+  app.bill = null;
+  console.log('app is', app);
+};
+
 // Add event handlers for bill-related buttons & forms
 const addHandlers = () => {
   $('#look-up-bill-view-button').on('click', onLookUpBillView);
@@ -178,6 +185,7 @@ const addHandlers = () => {
   $('#change-total-amount-view-button').on('click', onChangeTotalAmountView);
   $('#change-total-amount').on('submit', onChangeTotalAmount);
   $('#delete-new-bill-button').on('click', onDeleteNewBill);
+  $('#save-new-bill-button').on('click', onSaveNewBill);
 };
 
 module.exports = {

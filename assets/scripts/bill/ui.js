@@ -178,6 +178,7 @@ const deleteBillFailure = (error) => {
 };
 
 module.exports = {
+  showMainMenuView,
   showLookUpBillView,
   showGetNamesView,
   showGetTotalAmountView,
