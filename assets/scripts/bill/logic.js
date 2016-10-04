@@ -25,7 +25,7 @@ const createShares = () => {
   let shares = [];
   let totalAmount = app.bill.total_amount;
   let numPeople = app.bill.num_people;
-  let amountPerShare = (totalAmount / numPeople);
+  let amountPerShare = (totalAmount / numPeople).toFixed(2);
 
   names.forEach(function(name, index) {
     let share = {'id': index,

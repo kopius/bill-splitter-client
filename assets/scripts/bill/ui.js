@@ -31,7 +31,7 @@ const showGetTotalAmountView = () => {
 
 // dummy function to return something with share info
 const displayShareTemplate = (share) => {
-  let shareHMTL = '<p>' + share.name + ' owes ' + share.amount + '</p>';
+  let shareHMTL = '<p>' + share.name + ' owes $' + share.amount + '</p>';
   return shareHMTL;
 };
 

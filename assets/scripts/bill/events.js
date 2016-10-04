@@ -26,7 +26,6 @@ const submitShareInfo = () => {
   */
 
   logic.createShares();
-
   ui.displayShares();
 };
 
@@ -49,23 +48,8 @@ const onGetNamesView = (event) => {
 // Parses name submissions into an array of names and stores array on app.
 const onSubmitGroupNames = (event) => {
   event.preventDefault();
-
   let data = getFormFields(event.target);
   logic.processNames(data);
-
-  // this code is being moved to bill.logic; delete it here once it works ther
-  // let names = [app.userName];
-  // for (let key in data.names) {
-  //   names.push(data.names[key]);
-  // }
-  // names
-  // let num_people = names.length;
-  // app.currentBill = {'num_people': num_people};
-  // app.names = names;
-  //
-  // console.log('group names have been submitted:');
-  // console.log('app is', app);
-
   ui.showGetTotalAmountView();
 };
 
