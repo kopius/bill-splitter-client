@@ -79,10 +79,17 @@ const createBillFailure = (error) => {
   console.error(error);
 };
 
+const clearSharesFromView = () => {
+  $('#shares-list').find('p').remove();
+};
+
 // Respond to a successful bill update amount attempt
 const updateBillAmountSuccess = () => {
   console.log('you are in ui.updateBillSuccess');
   console.log("app.bill is", app.bill);
+
+  // clear shares from share summary
+  clearSharesFromView();
 };
 
 // Respond to a failed bill update amount attempt
