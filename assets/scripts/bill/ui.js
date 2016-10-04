@@ -29,6 +29,24 @@ const showGetTotalAmountView = () => {
   $('#get-total-amount-view').show();
 };
 
+// dummy function to return something with share info
+const displayShareTemplate = (share) => {
+  let shareHMTL = '<p>' + share.name + ' owes ' + share.amount + '</p>';
+  return shareHMTL;
+};
+
+// write new HTML for displaying an individual share
+const createShareHTMLFromTemplate = (share) => {
+  $('#shares-list').append(displayShareTemplate(share));
+};
+
+/* iterate over an array of share objects, plug their values into an HTML
+  template, and append the new HTML to a container on the share summary view */
+const displayShares = () => {
+  let shares = app.shares;
+  shares.forEach(createShareHTMLFromTemplate);
+};
+
 // Display a summary of the current share breakdown
 const showWorkingShareSummaryView = () => {
   clearView();
@@ -50,6 +68,7 @@ module.exports = {
   // showGetNumPeopleView,
   showGetNamesView,
   showGetTotalAmountView,
+  displayShares,
   showWorkingShareSummaryView,
   createBillSuccess,
   createBillFailure,

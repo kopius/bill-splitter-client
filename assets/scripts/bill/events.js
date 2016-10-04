@@ -4,6 +4,9 @@ const app = require('../app');
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
+const logic = require ('./logic');
+
+
 
 const submitShareInfo = () => {
   /*
@@ -21,6 +24,10 @@ const submitShareInfo = () => {
 
   When the loop is complete, the summary view may be displayed.
   */
+
+  logic.createShares();
+
+  ui.displayShares();
 };
 
 const submitBillInfo = () => {
@@ -44,16 +51,20 @@ const onSubmitGroupNames = (event) => {
   event.preventDefault();
 
   let data = getFormFields(event.target);
-  let names = [app.userName];
-  for (let key in data.names) {
-    names.push(data.names[key]);
-  }
-  let num_people = names.length;
-  app.currentBill = {'num_people': num_people};
-  app.names = names;
+  logic.processNames(data);
 
-  console.log('group names have been submitted:');
-  console.log('app is', app);
+  // this code is being moved to bill.logic; delete it here once it works ther
+  // let names = [app.userName];
+  // for (let key in data.names) {
+  //   names.push(data.names[key]);
+  // }
+  // names
+  // let num_people = names.length;
+  // app.currentBill = {'num_people': num_people};
+  // app.names = names;
+  //
+  // console.log('group names have been submitted:');
+  // console.log('app is', app);
 
   ui.showGetTotalAmountView();
 };
