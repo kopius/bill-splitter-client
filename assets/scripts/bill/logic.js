@@ -15,9 +15,6 @@ const processNames = (data) => {
   let num_people = names.length;
   app.currentBill = {'num_people': num_people};
   app.names = names;
-
-  console.log('group names have been submitted:');
-  console.log('app is', app);
 };
 
 const createShares = () => {
@@ -34,7 +31,6 @@ const createShares = () => {
     shares.push(share);
   });
   app.shares = shares;
-  console.log('in createShares, app is', app);
 };
 
 module.exports = {

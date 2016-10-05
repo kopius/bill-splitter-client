@@ -13,16 +13,6 @@
       <nav id="navigation-bar" class="navigation-bar">
         <div class="nav-content">
           <div id="nav-title" class="nav-title">Bill-Splitter</div>
-          <div class="dropdown nav-menu">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-              <li><a href="#">Main Menu</a></li>
-              <li role="separator" class="divider"></li>
-              <li id="sign-out" class="sign-out">Sign Out</li>
-            </ul>
-          </div>
         </div>
       </nav>
 
@@ -80,8 +70,6 @@
           <button type='button' id='look-up-bill-view-button' class='big-button btn btn-default'>Look up an Old Bill</button>
         </article>
 
-        <!-- bill-related views -->
-
         <!-- bill lookup view -->
         <article id='look-up-bill-view' class='look-up-bill-view view-box'>
           <legend>View All My Bills</legend>
@@ -130,6 +118,7 @@
           </div>
         </article>
 
+        <!-- get the total cost of the meal -->
         <article id='get-total-amount-view' class='get-total-amount-view view-box'>
           <form id="get-total-amount" class='bill-form get-total-amount'>
             <fieldset>
@@ -141,6 +130,7 @@
           </form>
         </article>
 
+        <!-- display the current share totals -->
         <article id='working-share-summary-view' class='working-share-summary-view view-box'>
           <div id="shares-list" class="shares-list">
             <legend>Here's what everyone owes:</legend>
@@ -151,6 +141,7 @@
           <button type='button' id='delete-new-bill-button' class='btn btn-default form-control'>Delete This Bill</button>
         </article>
 
+        <!-- get an updated total cost for the bill -->
         <article id='change-total-amount-view' class='change-total-amount-view view-box'>
           <form id="change-total-amount" class='bill-form change-total-amount'>
             <fieldset>
@@ -162,10 +153,11 @@
           </form>
         </article>
 
+        <!-- footer bar with navigation buttons -->
         <footer id="footer" class="footer">
           <button type='button' id='main-menu-button' class='btn btn-default footer-btn'>Main Menu</button>
           <button type='button' id='sign-out-button' class='btn btn-default footer-btn'>Sign Out</button>
-          <button type='button' id='change-password-viewbutton' class='btn btn-default footer-btn'>Change Password</button>
+          <button type='button' id='change-password-view-button' class='btn btn-default footer-btn'>Change Password</button>
         </footer>
 
       </section>

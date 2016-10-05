@@ -17,7 +17,6 @@ const onSignUp = function (event) {
 //
 const onSignInView = (event) => {
   event.preventDefault();
-  console.log('you are in onSignInView');
   ui.showSignInView();
 };
 

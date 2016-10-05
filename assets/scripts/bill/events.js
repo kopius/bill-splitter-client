@@ -61,7 +61,6 @@ const submitShareInfo = () => {
 const submitBillInfo = () => {
   let data = {};
   data.bill = app.currentBill;
-  // debugger;
   api.createBill(data)
     .done(ui.createBillSuccess)
     .done(submitShareInfo)
@@ -146,7 +145,6 @@ const onChangeTotalAmountView = (event) => {
 const onChangeTotalAmount = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
-  // debugger;
   let totalAmount = data.bill.total_amount;
   app.bill.total_amount = totalAmount;
 
@@ -170,7 +168,6 @@ const onSaveNewBill = () => {
   ui.showMainMenuView();
   app.currentBill = null;
   app.bill = null;
-  console.log('app is', app);
 };
 
 // Add event handlers for bill-related buttons & forms

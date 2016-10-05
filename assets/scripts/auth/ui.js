@@ -23,14 +23,21 @@ const showLandingView = () => {
 
 // Display the sign-in form
 const showSignInView = () => {
-  console.log('you are in showSignInView');
   clearView();
   $('#sign-in-view').show();
 };
 
+const clearBillInfoFromApp = () => {
+   app.bill = null;
+   app.currentBill = null;
+   app.names = null;
+   app.shares = null;
+ };
+
 // Display the main menu
 const showMainMenuView = () => {
   clearView();
+  clearBillInfoFromApp();
   $('#navigation-bar').show();
   $('#main-menu-view').show();
   $('#footer').show();
@@ -47,13 +54,10 @@ const storeUserName = () => {
   let stop = email.indexOf('@');
   let userName = email.charAt(0).toUpperCase() + email.slice(1, stop);
   app.userName = userName;
-  console.log('app.userName is', app.userName);
 };
 
 // Respond to a successful sign-up attempt
 const signUpSuccess = (data) => {
-  console.log('you are in signUpSuccess');
-  console.log('data is', data);
   // automatically sign user in
   // if password was persisted locally to facilitate auto sign-in, delete it now
   // display main menu
@@ -69,8 +73,6 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   // store new user in app.user
   app.user = data.user;
-  console.log('you are in signInSuccess');
-  console.log('app.user is', app.user);
   storeUserName();
   // display main menu
   showMainMenuView();
@@ -85,7 +87,7 @@ const signInFailure = function (error) {
 const signOutSuccess = () => {
   // clear the user object and any text left in the authorization forms
   app.user = null;
-  showSignInView();
+  showLandingView();
 };
 
 // Respond to a failed sign-out attempt
@@ -95,7 +97,7 @@ const signOutFailure = (error) => {
 
 // Respond to a successful attempt to change password
 const changePasswordSuccess = () => {
-  console.log('you are in changePasswordSuccess');
+  showMainMenuView();
 };
 
 // Respond to a failed attempt to change password

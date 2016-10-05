@@ -101,7 +101,6 @@ const clearBillsFromView = () => {
 
 //
 const indexBillsSuccess = (data) => {
-  console.log('data is', data);
   let bills = data.bills;
 
   // clear any previously displayed bills
@@ -119,7 +118,6 @@ const indexBillsFailure = (error) => {
 
 //
 const showBillSuccess = (data) => {
-  console.log('data is', data);
   let bill = data.bill;
 
   $('#bill-display').find('p').remove();
@@ -137,9 +135,7 @@ const showBillFailure = (error) => {
 
 // Respond to a successful bill creation attempt
 const createBillSuccess = (data) => {
-  console.log('you are in ui.createBillSuccess');
   app.bill = data.bill;
-  console.log("app.bill is", app.bill);
 };
 
 // Respond to a failed bill creation attempt
@@ -153,24 +149,18 @@ const clearSharesFromView = () => {
 
 // Respond to a successful bill update amount attempt
 const updateBillAmountSuccess = () => {
-  console.log('you are in ui.updateBillSuccess');
-  console.log("app.bill is", app.bill);
-
   // clear shares from share summary
   clearSharesFromView();
 };
 
 // Respond to a failed bill update amount attempt
 const updateBillAmountFailure = (error) => {
-  console.log('you are in updateBillAmountFailure');
   console.error(error);
 };
 
 const deleteBillSuccess = () => {
-  console.log('you are in ui.deleteBillSuccess');
   app.bill = null;
   showMainMenuView();
-  console.log('app.bill should be null. app.bill is:', app.bill);
 };
 
 const deleteBillFailure = (error) => {
