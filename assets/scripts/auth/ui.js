@@ -17,6 +17,7 @@ const clearView = () => {
 const showLandingView = () => {
   clearView();
   $('#navigation-bar').hide();
+  $('#footer').hide();
   $('#landing-view').show();
 };
 
@@ -32,6 +33,12 @@ const showMainMenuView = () => {
   clearView();
   $('#navigation-bar').show();
   $('#main-menu-view').show();
+  $('#footer').show();
+};
+
+const showChangePasswordView = () => {
+  clearView();
+  $('#change-password-view').show();
 };
 
 // Parse the user's email to get a working username
@@ -99,6 +106,8 @@ const changePasswordFailure = (error) => {
 module.exports = {
   showLandingView,
   showSignInView,
+  showMainMenuView,
+  showChangePasswordView,
   signUpSuccess,
   signUpFailure,
   signInSuccess,

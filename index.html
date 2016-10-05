@@ -5,7 +5,7 @@
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="assets/styles/index.scss" rel="stylesheet">
+      <!-- <link href="assets/styles/index.scss" rel="stylesheet"> -->
     </head>
     <body>
 
@@ -64,17 +64,14 @@
           <form id="change-password" class='auth-form change-password'>
             <fieldset>
               <legend>Change your password</legend>
-              <input type="password" name="passwords[old]" placeholder="Enter current password">
+              <input class='form-control' type="password" name="passwords[old]" placeholder="Enter current password">
               <br>
-              <input type="password" name="passwords[new]" placeholder="Choose a new password">
+              <input class='form-control' type="password" name="passwords[new]" placeholder="Choose a new password">
               <br>
-              <input class="submit" type="submit" name="submit" value="Change Password">
+              <input class="submit form-control" type="submit" name="submit" value="Change Password">
             </fieldset>
           </form>
         </article>
-
-        <!-- sign-out button -->
-        <!-- <button type="button" id="sign-out" class="sign-out">Sign Out</button> -->
 
         <!-- main menu view -->
         <article id='main-menu-view' class='main-menu-view view-box'>
@@ -164,6 +161,12 @@
             </fieldset>
           </form>
         </article>
+
+        <footer id="footer" class="footer">
+          <button type='button' id='main-menu-button' class='btn btn-default footer-btn'>Main Menu</button>
+          <button type='button' id='sign-out-button' class='btn btn-default footer-btn'>Sign Out</button>
+          <button type='button' id='change-password-viewbutton' class='btn btn-default footer-btn'>Change Password</button>
+        </footer>
 
       </section>
     </body>
