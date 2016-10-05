@@ -160,6 +160,7 @@ const updateBillAmountFailure = (error) => {
 
 const deleteBillSuccess = () => {
   app.bill = null;
+  clearSharesFromView();
   showMainMenuView();
 };
 
