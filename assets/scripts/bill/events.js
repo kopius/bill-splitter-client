@@ -165,7 +165,7 @@ const onDeleteNewBill = (event) => {
 };
 
 const onSaveNewBill = () => {
-  clearSharesFromView();
+  ui.clearSharesFromView();
   ui.showMainMenuView();
   app.currentBill = null;
   app.bill = null;

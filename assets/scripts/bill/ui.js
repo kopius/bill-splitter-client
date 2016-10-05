@@ -176,6 +176,7 @@ module.exports = {
   displayShares,
   showWorkingShareSummaryView,
   showChangeTotalAmountView,
+  clearSharesFromView,
   indexBillsSuccess,
   indexBillsFailure,
   showBillSuccess,
