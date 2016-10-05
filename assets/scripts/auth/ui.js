@@ -61,7 +61,7 @@ const signUpSuccess = (data) => {
   // automatically sign user in
   // if password was persisted locally to facilitate auto sign-in, delete it now
   // display main menu
-  showMainMenuView();
+  showSignInView();
 };
 
 // Respond to a failed sign-up attempt
