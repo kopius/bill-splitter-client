@@ -1,17 +1,42 @@
-$deep-blue: #072f87;
-$navy-blue: #0d1e4c;
-$royal-blue: #094abc;
-$butter: #ede979;
-$orange-cream: #d6a145;
-$parchment: #f2eeb0;
+// universal colors:
+$black: #000;
+$white: #fff;
 
-$body-background: $royal-blue;
-$body-text: $parchment;
+// 'blue-orange' color palette
+// $deep-blue: #072f87;
+// $navy-blue: #0d1e4c;
+// $royal-blue: #094abc;
+// $butter: #ede979;
+// $orange-cream: #d6a145;
+// $parchment: #f2eeb0;
 
-$nav-background: $navy-blue;
-$nav-text: $butter;
+// 'verdes' color palette
+$off-white: #fcfce4;
+$spring-green: #078c03;
+$forest-green: #055902;
+$olive-green: #2c4001;
+$tan: #a6866a;
 
-$button-background: $orange-cream;
-$button-text: $navy-blue;
+// set color scheme to 'orange-blue'
+// $body-background: $royal-blue;
+// $body-text: $parchment;
+//
+// $nav-background: $navy-blue;
+// $nav-text: $butter;
+//
+// $button-background: $orange-cream;
+// $button-text: $navy-blue;
+//
+// $form-text: $navy-blue;
 
-$form-text: $navy-blue;
+// set color scheme to 'verdes'
+$body-background: $off-white;
+$body-text: $olive-green;
+
+$nav-background: $forest-green;
+$nav-text: $off-white;
+
+$button-background: $forest-green;
+$button-text: $off-white;
+
+$form-text: $olive-green;

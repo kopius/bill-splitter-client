@@ -1,3 +1,4 @@
+
 html {
   height: 100%;
 }
@@ -6,6 +7,8 @@ body {
   background: $body-background;
   color: $body-text;
   display: flex;
+  font-family: $body-font;
+  font-weight: 100;
   margin: 0;
   min-height: 100%;
   padding: 0;
@@ -16,6 +19,7 @@ nav {
   color: $nav-text;
   display: flex;
   flex: 0 1 65px;
+  font-family: $header-font;
   justify-content: center;
   position: fixed;
   top: 0;
@@ -24,8 +28,8 @@ nav {
   .nav-content {
     align-items: center;
     display: flex;
-    font-size: 2.2em;
-    font-weight: 800;
+    font-size: 2.5em;
+    font-weight: 200;
     justify-content: space-between;
     width: 95%;
 
@@ -62,15 +66,17 @@ nav {
   .submit {
     background: $button-background;
     color: $button-text;
+    font-family: $button-font;
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 3px;
   }
 
   .big-button {
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: bold;
     height: 60px;
+    max-width: 150px;
     width: 90%;
   }
 
@@ -92,13 +98,13 @@ nav {
     border-radius: 3px;
     color: $form-text;
     margin: 3px auto;
+    max-width: 200px;
     width: 90%;
   }
 
   .name-input {
     display: inline-block;
     width: 85%;
-    // height: 3
   }
 
   legend {
@@ -130,4 +136,28 @@ footer {
     font-weight: 600;
     margin: 6px 3px;
   }
+}
+
+.btn:active:focus,
+.big-button:active:focus,
+.submit.active:focus,
+ {
+  background-color: $olive-green;
+  color: $off-white;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.big-button:hover,
+.big-button:focus,
+.big-button:active,
+.big-button.active,
+.submit:hover,
+.submit:focus,
+.submit:active,
+.submit.active {
+  background: $spring-green;
+  color: $off-white;
 }
