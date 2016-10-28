@@ -76,7 +76,8 @@ nav {
     font-size: 1.5em;
     font-weight: bold;
     height: 60px;
-    max-width: 150px;
+    min-width: 150px;
+    max-width: 300px;
     width: 90%;
   }
 
@@ -98,7 +99,8 @@ nav {
     border-radius: 3px;
     color: $form-text;
     margin: 3px auto;
-    max-width: 200px;
+    min-width: 150px;
+    max-width: 300px;
     width: 90%;
   }
 
@@ -160,4 +162,8 @@ footer {
 .submit.active {
   background: $spring-green;
   color: $off-white;
+}
+
+.input-group .form-control {
+  float: none;
 }
