@@ -48,21 +48,24 @@ const showGetTotalAmountView = () => {
 };
 
 // Write new HTML for an individual share
-const displayShareTemplate = (share) => {
-  let shareHMTL = '<p>' + share.name + ' owes $' + share.amount + '</p>';
-  return shareHMTL;
+const populateShareTemplate = (share) => {
+  let person_name = share.person_name;
+  let amountOwed = ( Number(share.base_cost) - Number(share.cost_adjustment) ).toFixed(2);
+  // let shareHTML = '<p>' + share.person_name + ' owes $' + share.base_cost + '</p>';
+  let shareHTML = `<p>${person_name} owes $${amountOwed}</p>`;
+  return shareHTML;
 };
 
 // Display new HTML for an individual share
-const createShareHTMLFromTemplate = (share) => {
-  $('#shares-list').append(displayShareTemplate(share));
+const appendShareToSummary = (share) => {
+  $('#shares-list').append(populateShareTemplate(share));
 };
 
 /* iterate over an array of share objects, plug their values into an HTML
   template, and append the new HTML to a container on the share summary view */
 const displayShares = () => {
-  let shares = app.shares;
-  shares.forEach(createShareHTMLFromTemplate);
+  let shares = app.currentShares;
+  shares.forEach(appendShareToSummary);
 };
 
 // Display a summary of the current share breakdown
@@ -135,6 +138,7 @@ const showBillFailure = (error) => {
 
 // Respond to a successful bill creation attempt
 const createBillSuccess = (data) => {
+  console.log('in createBillSuccess, data is:', data);
   app.bill = data.bill;
 };
 
@@ -168,6 +172,12 @@ const deleteBillFailure = (error) => {
   console.error(error);
 };
 
+const indexSharesSuccess = (data) => {
+  console.log('in indexSharesSuccess, data is:', data);
+  app.currentShares = data.shares;
+  displayShares();
+};
+
 module.exports = {
   showMainMenuView,
   showLookUpBillView,
@@ -187,4 +197,5 @@ module.exports = {
   updateBillAmountFailure,
   deleteBillSuccess,
   deleteBillFailure,
+  indexSharesSuccess,
 };

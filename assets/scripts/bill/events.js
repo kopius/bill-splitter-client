@@ -43,8 +43,9 @@ const submitShareInfo = () => {
 
     Write an api function that initiates the POST requests via AJAX
 
-    Create an array 'shares' on app. As each new share object is returned, push
-    it into this array.
+    After the loop is complete and each POST request is successful, do a
+    GET to /bills/:bill_id/shares to get the collection of newly created
+    shares for this bill.
 
     Write a ui function that iterates over the shares and creates HTML for
     each. Append each new element to the working-share-summary-view.
@@ -53,19 +54,40 @@ const submitShareInfo = () => {
   */
 
   // For prototype, use local logic to create and display Shares
-  logic.createShares();
-  ui.displayShares();
+  let shares = logic.buildShareObjects();
+  shares.forEach((share) => {
+    api.createShare({share})
+    .then((data) => console.log('Created a share! Data is:', data))
+    .catch(console.error);
+  });
+  // ui.displayShares();
 };
 
-//
+// PROMISIFY THIS
 const submitBillInfo = () => {
   let data = {};
   data.bill = app.currentBill;
   api.createBill(data)
-    .done(ui.createBillSuccess)
-    .done(submitShareInfo)
-    .done(ui.showWorkingShareSummaryView)
-    .fail(ui.createBillFailure);
+  .then(ui.createBillSuccess)
+  .then(logic.buildShareObjects)
+  .then((shares) => {
+    shares.forEach((share) => {
+      api.createShare({share})
+      .then((data) => console.log('Created a share! Data is:', data))
+      .catch(console.error);
+    });
+  })
+  .then(() => api.indexShares(app.bill.id))
+  .then(ui.indexSharesSuccess)
+  .then(ui.showWorkingShareSummaryView)
+  .catch(ui.createBillFailure);
+
+    // .done(ui.createBillSuccess)
+    // .done(submitShareInfo)
+    // .done(() => api.indexShares(app.currentBill.id))
+    // .done(ui.indexSharesSuccess)
+    // .done(ui.showWorkingShareSummaryView)
+    // .fail(ui.createBillFailure);
 };
 
 //
@@ -89,7 +111,7 @@ const onSubmitTotalAmount = (event) => {
   // extract the total cost of the meal from the form submission and save on app
   let data = getFormFields(event.target);
   let bill = data.bill;
-  app.currentBill.total_amount = bill.total_amount;
+  app.currentBill.total_amount = Number(bill.total_amount).toFixed(2);
 
   submitBillInfo();
 };

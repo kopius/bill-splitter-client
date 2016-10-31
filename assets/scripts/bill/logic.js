@@ -17,23 +17,34 @@ const processNames = (data) => {
   app.names = names;
 };
 
-const createShares = () => {
+// build up a collection of shares to be posted to the server
+const buildShareObjects = () => {
   let names = app.names;
   let shares = [];
+  let billId = app.bill.id;
   let totalAmount = app.bill.total_amount;
   let numPeople = app.bill.num_people;
-  let amountPerShare = (totalAmount / numPeople).toFixed(2);
-
+  let baseCost = (totalAmount / numPeople).toFixed(2);
+  let remainder = totalAmount - (baseCost * numPeople);
   names.forEach(function(name, index) {
-    let share = {'id': index,
-                 'name': name,
-                 'amount': amountPerShare};
+    // if the total amount doesn't divide evenly, user pays the extra few cents
+    if (remainder && name === app.userName) {
+      baseCost += remainder;
+    }
+    let share = {
+                 'bill_id': billId,
+                 'person_name': name,
+                 'base_cost': baseCost,
+                 'cost_adjustment': 0
+                };
     shares.push(share);
   });
+  // only need to do one of these:
   app.shares = shares;
+  return shares;
 };
 
 module.exports = {
   processNames,
-  createShares,
+  buildShareObjects,
 };
