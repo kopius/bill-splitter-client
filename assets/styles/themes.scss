@@ -7,7 +7,7 @@ body {
   background: $body-background;
   color: $body-text;
   display: flex;
-  font-family: $body-font;
+  flex-flow: column;
   font-weight: 100;
   margin: 0;
   min-height: 100%;
@@ -18,11 +18,10 @@ nav {
   background: $nav-background;
   color: $nav-text;
   display: flex;
-  flex: 0 1 65px;
+  flex: 1 1 65px;
   font-family: $header-font;
   justify-content: center;
-  position: fixed;
-  top: 0;
+  max-height: 65px;
   width: 100%;
 
   .nav-content {
@@ -51,8 +50,8 @@ nav {
   align-items: center;
   display: flex;
   flex: 1 1 auto;
-  height: 100%;
-  position: absolute;
+  // height: 100%;
+  // position: absolute;
   text-align: center;
   width: 100%;
 
@@ -116,7 +115,7 @@ nav {
 }
 
 .button-spacer {
-  height: 60px;
+  height: 30px;
 }
 
 .shares-list {
@@ -125,18 +124,32 @@ nav {
 
 footer {
   background: $nav-background;
-  bottom: 0;
   color: $nav-text;
   display: flex;
-  flex: 0 1 35px;
+  flex: 0 1 45px;
   justify-content: center;
-  position: fixed;
+  text-align: center;
   width: 100%;
+
+  button {
+    background: $button-background;
+    color: $button-text;
+    font-family: $button-font;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
 
   .footer-btn {
     font-size: 1em;
     font-weight: 600;
     margin: 6px 3px;
+    background: $button-background;
+    color: $button-text;
+    font-family: $button-font;
+    // font-size: 1.2em;
+    // font-weight: bold;
+    // margin-bottom: 3px;
   }
 }
 
@@ -167,3 +180,17 @@ footer {
 .input-group .form-control {
   float: none;
 }
+
+.bills-list {
+  // overflow: scroll;
+}
+
+// nav,
+// .container-main,
+// footer {
+//   flex: 1 100%;
+// }
+
+nav {order: 1;}
+.container-main {order: 2;}
+footer {order: 3;}
