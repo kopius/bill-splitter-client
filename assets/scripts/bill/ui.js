@@ -50,7 +50,7 @@ const showGetTotalAmountView = () => {
 // Write new HTML for an individual share
 const populateShareTemplate = (share) => {
   let person_name = share.person_name;
-  let amountOwed = ( Number(share.base_cost) - Number(share.cost_adjustment) ).toFixed(2);
+  let amountOwed = Number(share.adjusted_cost).toFixed(2);
   // let shareHTML = '<p>' + share.person_name + ' owes $' + share.base_cost + '</p>';
   let shareHTML = `<p>${person_name} owes $${amountOwed}</p>`;
   return shareHTML;
@@ -83,7 +83,7 @@ const showChangeTotalAmountView = () => {
 // Write new HTML for an individual share
 const writeBillHTML = (bill) => {
   let billHMTL = '<p>Bill #' + bill.id + ': ' + bill.num_people + ' people, ';
-  billHMTL += 'total cost of $' + bill.total_amount + '</p>';
+  billHMTL += 'total cost of $' + Number(bill.total_amount).toFixed(2) + '</p>';
   return billHMTL;
 };
 
@@ -174,7 +174,7 @@ const deleteBillFailure = (error) => {
 
 const indexSharesSuccess = (data) => {
   console.log('in indexSharesSuccess, data is:', data);
-  app.currentShares = data.shares;
+  app.currentShares = data;
   displayShares();
 };
 
