@@ -22,6 +22,7 @@ nav {
   font-family: $header-font;
   justify-content: center;
   max-height: 65px;
+  order: 1;
   width: 100%;
 
   .nav-content {
@@ -50,14 +51,12 @@ nav {
   align-items: center;
   display: flex;
   flex: 1 1 auto;
-  // height: 100%;
-  // position: absolute;
+  order: 2;
   text-align: center;
   width: 100%;
 
   .view-box {
     margin: 0 auto;
-    // flex: 0.8 1 auto;
     width: 80%;
   }
 
@@ -75,8 +74,8 @@ nav {
     font-size: 1.5em;
     font-weight: bold;
     height: 60px;
-    min-width: 150px;
     max-width: 300px;
+    min-width: 150px;
     width: 90%;
   }
 
@@ -98,8 +97,8 @@ nav {
     border-radius: 3px;
     color: $form-text;
     margin: 3px auto;
-    min-width: 150px;
     max-width: 300px;
+    min-width: 150px;
     width: 90%;
   }
 
@@ -128,6 +127,7 @@ footer {
   display: flex;
   flex: 0 1 45px;
   justify-content: center;
+  order: 3;
   text-align: center;
   width: 100%;
 
@@ -141,15 +141,12 @@ footer {
   }
 
   .footer-btn {
-    font-size: 1em;
-    font-weight: 600;
-    margin: 6px 3px;
     background: $button-background;
     color: $button-text;
     font-family: $button-font;
-    // font-size: 1.2em;
-    // font-weight: bold;
-    // margin-bottom: 3px;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 6px 3px;
   }
 }
 
@@ -180,17 +177,3 @@ footer {
 .input-group .form-control {
   float: none;
 }
-
-.bills-list {
-  // overflow: scroll;
-}
-
-// nav,
-// .container-main,
-// footer {
-//   flex: 1 100%;
-// }
-
-nav {order: 1;}
-.container-main {order: 2;}
-footer {order: 3;}
