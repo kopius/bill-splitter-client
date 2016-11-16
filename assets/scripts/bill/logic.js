@@ -35,7 +35,6 @@ const buildShareObjects = () => {
                  'bill_id': billId,
                  'person_name': name,
                  'base_cost': baseCost,
-                 'cost_adjustment': 0
                 };
     shares.push(share);
   });
