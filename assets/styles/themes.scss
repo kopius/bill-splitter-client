@@ -8,7 +8,7 @@ body {
   color: $body-text;
   display: flex;
   flex-flow: column;
-  font-weight: 100;
+  font-weight: 400;
   margin: 0;
   min-height: 100%;
   padding: 0;
@@ -79,8 +79,13 @@ nav {
     width: 90%;
   }
 
-  .add-more,
-  .remove-me {
+  .btn.form-control {
+    height: 36px;
+    width: 200px;
+  }
+
+  .btn.add-more,
+  .btn.remove-me {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 3px;
@@ -94,6 +99,7 @@ nav {
   }
 
   input {
+    background-color: $form-background;
     border-radius: 3px;
     color: $form-text;
     margin: 3px auto;
@@ -109,7 +115,8 @@ nav {
 
   legend {
     color: $body-text;
-    font-size: 2em;
+    font-size: 1.7em;
+    font-weight: 600;
   }
 }
 
@@ -176,4 +183,9 @@ footer {
 
 .input-group .form-control {
   float: none;
+}
+
+.form-control {
+  font-size: 18px;
+  font-weight: 400;
 }
