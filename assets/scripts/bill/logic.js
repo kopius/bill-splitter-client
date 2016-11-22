@@ -26,7 +26,7 @@ const buildShareObjects = () => {
   let numPeople = app.bill.num_people;
   let baseCost = (totalAmount / numPeople).toFixed(2);
   let remainder = totalAmount - (baseCost * numPeople);
-  names.forEach(function(name, index) {
+  names.forEach(function(name) {
     // if the total amount doesn't divide evenly, user pays the extra few cents
     if (remainder && name === app.userName) {
       baseCost += remainder;

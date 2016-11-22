@@ -138,7 +138,6 @@ const showBillFailure = (error) => {
 
 // Respond to a successful bill creation attempt
 const createBillSuccess = (data) => {
-  console.log('in createBillSuccess, data is:', data);
   app.bill = data.bill;
 };
 
@@ -173,7 +172,6 @@ const deleteBillFailure = (error) => {
 };
 
 const indexSharesSuccess = (data) => {
-  console.log('in indexSharesSuccess, data is:', data);
   app.currentShares = data;
   displayShares();
 };

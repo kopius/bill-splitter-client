@@ -32,62 +32,26 @@ const onGetBillById = (event) => {
     .fail(ui.showBillFailure);
 };
 
-//
-const submitShareInfo = () => {
-  /*
-  Stretch goal for this function:
-
-  Loop through the names array and initiate a POST request for each name,
-  including the name and bill_id as the data for each request, like so:
-  data = {share: {name: 'Alex', bill_id: 8}}
-
-    Write an api function that initiates the POST requests via AJAX
-
-    After the loop is complete and each POST request is successful, do a
-    GET to /bills/:bill_id/shares to get the collection of newly created
-    shares for this bill.
-
-    Write a ui function that iterates over the shares and creates HTML for
-    each. Append each new element to the working-share-summary-view.
-
-  When the loop is complete, the summary view may be displayed.
-  */
-
-  // For prototype, use local logic to create and display Shares
-  let shares = logic.buildShareObjects();
-  shares.forEach((share) => {
-    api.createShare({share})
-    .then((data) => console.log('Created a share! Data is:', data))
-    .catch(console.error);
-  });
-  // ui.displayShares();
-};
-
-// PROMISIFY THIS
+// gather accumulated Bill data, POST bill to server, GET and display new shares
+// TODO: break this function into a series of smaller, more focused functions
 const submitBillInfo = () => {
+  // build data object
   let data = {};
   data.bill = app.currentBill;
+  data.bill.shares_attributes = [];
+  let baseCost = data.bill.total_amount / data.bill.num_people;
+  app.names.forEach((name) => {
+    let share = { person_name: name, base_cost: baseCost };
+    data.bill.shares_attributes.push(share);
+  });
+
+  // POST new bill to the server with the data object
   api.createBill(data)
   .then(ui.createBillSuccess)
-  .then(logic.buildShareObjects)
-  .then((shares) => {
-    shares.forEach((share) => {
-      api.createShare({share})
-      .then((data) => console.log('Created a share! Data is:', data))
-      .catch(console.error);
-    });
-  })
   .then(() => api.indexShares(app.bill.id))
   .then(ui.indexSharesSuccess)
   .then(ui.showWorkingShareSummaryView)
   .catch(ui.createBillFailure);
-
-    // .done(ui.createBillSuccess)
-    // .done(submitShareInfo)
-    // .done(() => api.indexShares(app.currentBill.id))
-    // .done(ui.indexSharesSuccess)
-    // .done(ui.showWorkingShareSummaryView)
-    // .fail(ui.createBillFailure);
 };
 
 //

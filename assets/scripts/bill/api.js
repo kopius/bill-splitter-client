@@ -58,7 +58,6 @@ const createBill = (data) => {
         });
       }
     };
-    console.log('request is:', request);
     return $.ajax(request);
   });
 };
